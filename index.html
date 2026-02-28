@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Língua Portuguesa — Domine o Idioma</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            overflow: hidden;
+            background-color: #F9E1E6;
+        }
+
+        #intro {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            /* Fallback */
+            height: 100dvh;
+            /* Mobile browsers */
+            transition: opacity 1s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background-color: #FFEBEC;
+        }
+
+        video {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            z-index: 1000;
+        }
+
+        /* Ajustes para telas pequenas (smartphones) */
+        @media (max-width: 768px) {
+            video {
+                /* 'contain' garante que as palavras não sejam cortadas nas laterais */
+                object-fit: contain;
+                object-position: center;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <div id="intro">
+        <video id="introVideo" autoplay muted>
+            <source src="videos/Animate Word Website Entry 5Cbb59f0ff.mp4" type="video/mp4">
+        </video>
+    </div>
+
+    <script>
+        const video = document.getElementById("introVideo");
+        const intro = document.getElementById("intro");
+
+        video.addEventListener("ended", () => {
+            intro.style.opacity = "0";
+
+            setTimeout(() => {
+                window.location.href = "home.html";
+            }, 1000);
+        });
+    </script>
+
+</body>
+
+</html>
