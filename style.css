@@ -334,7 +334,7 @@ a {
     display: flex;
     gap: 2rem;
     width: max-content;
-    animation: scroll 20s linear infinite;
+    animation: scroll 30s linear infinite;
 }
 
 .video-grid:hover {
@@ -550,3 +550,4 @@ a {
         font-size: 2rem;
     }
 }
+
