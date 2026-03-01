@@ -56,29 +56,28 @@
 
 <body>
 
-     <div id="intro">
-        <video id="introVideo" autoplay muted playsinline 
-    preload="auto">
+    <div id="intro">
+        <video id="introVideo" autoplay muted playsinline preload="auto">
             <source src="Animate Word Website Entry 5Cbb59f0ff.mp4" type="video/mp4">
         </video>
     </div>
 
     <script>
-       const video = document.getElementById("introVideo");
-       const intro = document.getElementById("intro");
+        const video = document.getElementById("introVideo");
+        const intro = document.getElementById("intro");
 
-       function irParaHome() {
-       intro.style.opacity = "0";
-       setTimeout(() => {
-        window.location.href = "home.html";
-    }, 1000);
-}
+        function irParaHome() {
+            intro.style.opacity = "0";
+            setTimeout(() => {
+                window.location.href = "home.html";
+            }, 1000);
+        }
 
         video.addEventListener("ended", irParaHome);
 
-// fallback para iPhone
-        setTimeout(irParaHome, 4500); c
-</script>
+        // fallback para iPhone
+        setTimeout(irParaHome, 4500);
+    </script>
 
 </body>
 
