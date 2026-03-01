@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Língua Portuguesa </title>
+    <title>Língua Portuguesa</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link
@@ -28,22 +28,19 @@
         <div class="particle"></div>
     </div>
 
-    <section class="seção-1">
+    <section class="seção-1" id="seção-1">
         <header class="main-header">
             <div class="logo">
                 <h2>Portu<span>guês.</span></h2>
             </div>
             <nav class="nav-menu">
                 <ul>
-                    <li><a href="#" class="nav-link active">Início</a></li>
-                    <li><a href="#" class="nav-link">Sobre</a></li>
-                    <li><a href="#" class="nav-link">Aulas</a></li>
-                    <li><a href="#" class="nav-link">Contato</a></li>
+                    <li><a href="#seção-1" class="nav-link ">Início</a></li>
+                    <li><a href="#Sobre" class="nav-link">Sobre</a></li>
+                    <li><a href="#seção-1" class="nav-link">Aulas</a></li>
                 </ul>
             </nav>
-            <div class="header-actions">
-                <button class="btn-primary">Explorar</button>
-            </div>
+            
         </header>
 
 
@@ -138,14 +135,14 @@
     </section>
 
     <!-- 🎯 OBJECTIVES SECTION (Parallax) -->
-    <section class="objectives-section">
+    <section class="objectives-section" id="Sobre">
         <div class="objectives-bg">
             <div class="objectives-bg-gradient"></div>
         </div>
 
         <div class="section-container">
             <div class="section-header">
-                <div class="section-tag">Objetivos</div>
+                <div class="section-tag">Sobre</div>
                 <h2 class="section-title">Trilhas de <span class="highlight">Aprendizado</span></h2>
                 <p class="section-subtitle">Mantenha seu perfil atualizado e acompanhe seu progresso dinamicamente com
                     nossas inovações.</p>
@@ -183,13 +180,50 @@
                 <span>Portugues</span>
             </div>
             <div class="footer-links">
-                <a href="#Inicio">Início</a>
-                <a href="#Sobre">Sobre</a>
+                <a href="#seção-1" class="nav-link ">Início</a>
+                <a href="#Sobre" class="nav-link">Sobre</a>
+                <a href="#seção-1" class="nav-link">Aulas</a>
             </div>
             <div class="footer-divider"></div>
             <span class="footer-copyright">Site da lingua portuguesa &copy; 2026 — Todos os direitos reservados</span>
         </div>
     </footer>
+
+    <script>
+        // Script para navegação suave entre seções
+        document.querySelectorAll('a[href^="#"]').forEach(link => {
+            link.addEventListener('click', function(e) {
+                e.preventDefault();
+                const targetId = this.getAttribute('href');
+                const targetSection = document.querySelector(targetId);
+                
+                if (targetSection) {
+                    targetSection.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Script para esconder/mostrar header ao rolar
+        let lastScrollTop = 0;
+        const header = document.querySelector('.main-header');
+
+        window.addEventListener('scroll', function() {
+            let scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+            
+            if (scrollTop > lastScrollTop) {
+                // Scrollando para baixo
+                header.classList.add('header-hidden');
+            } else {
+                // Scrollando para cima
+                header.classList.remove('header-hidden');
+            }
+            
+            lastScrollTop = scrollTop <= 0 ? 0 : scrollTop; // For Mobile or negative scrolling
+        });
+    </script>
 
 
 
@@ -197,6 +231,5 @@
 
 
 </body>
-
 
 </html>

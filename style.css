@@ -35,6 +35,12 @@
 
 html {
     scroll-behavior: smooth;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+}
+
+html::-webkit-scrollbar {
+    display: none;
 }
 
 body {
@@ -104,9 +110,13 @@ h1 {
     padding: 1.25rem 5%;
     position: fixed;
     top: 0;
-    backdrop-filter: blur(4px);
     width: 90%;
     z-index: 1000;
+    transition: transform 0.3s ease-in-out;
+}
+
+.main-header.header-hidden {
+    transform: translateY(-100%);
 }
 
 .logo h2 {
@@ -133,12 +143,11 @@ h1 {
     position: relative;
 }
 
-.nav-link:hover,
-.nav-link.active {
+.nav-link:hover {
     color: var(--secondary);
 }
 
-.nav-link.active::after {
+.nav-link::after {
     content: '';
     position: absolute;
     bottom: -5px;
@@ -147,6 +156,13 @@ h1 {
     height: 2px;
     background: var(--secondary);
     border-radius: 2px;
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 0.3s ease;
+}
+
+.nav-link:hover::after {
+    transform: scaleX(1);
 }
 
 .btn-primary {
@@ -358,13 +374,9 @@ a {
     border: 1px solid var(--glass-border);
     border-radius: 20px;
     padding: 36px 28px;
-    backdrop-filter: blur(12px);
-    -webkit-backdrop-filter: blur(12px);
-    transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+    transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1), box-shadow 0.5s ease, background-color 0.5s ease, border-color 0.5s ease;
     overflow: hidden;
     cursor: default;
-    transform-style: preserve-3d;
-    will-change: transform;
 }
 
 .objective-card::before {
@@ -404,7 +416,7 @@ a {
     margin-bottom: 20px;
     border: 1px solid rgba(219, 39, 119, 0.15);
     font-size: 24px;
-    transition: all 0.4s ease;
+    transition: transform 0.4s ease, background 0.4s ease, box-shadow 0.4s ease;
 }
 
 .objective-card:hover .card-icon {
